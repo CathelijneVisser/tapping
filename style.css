@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-wrap: wrap;
+    width: 16em;
+}
+
+button {
+    background-color: lightgray;
+    border: none;
+    border-radius: 50%;
+    width: 26%;
+    height: 5em;
+    margin: .5em;
+}
+
+.active {
+    background-color: aqua;
+}
