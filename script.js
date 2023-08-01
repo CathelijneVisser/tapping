@@ -16,10 +16,18 @@ function random_item(array) {
 }
 
 function activate() {
-    random_item(array).classList.add("active")
-    
+    console.log("test")
+    var random = random_item(array)
+    random.classList.add("active") 
+    for( var i = 0; i < array.length; i++){ 
+                                   
+        if ( array[i] === random) { 
+            array.splice(i, 1); 
+            i--; 
+        }
+    }
 }
-setInterval(activate, 2000000)
+setInterval(activate, 200)
 
 
 //change color
@@ -41,3 +49,4 @@ input.addEventListener("input", (e) => {
     })
 })
 
+//change speed
