@@ -16,23 +16,32 @@ function random_item(array) {
 }
 
 function activate() {
-    console.log("test")
-    var random = random_item(array)
-    random.classList.add("active") 
-    for( var i = 0; i < array.length; i++){ 
-                                   
-        if ( array[i] === random) { 
-            array.splice(i, 1); 
-            i--; 
+    if (array.length > 0) {       
+        var random = random_item(array)
+        random.classList.add("active") 
+        for( var i = 0; i < array.length; i++){ 
+                                    
+            if ( array[i] === random) { 
+                array.splice(i, 1); 
+                i--; 
+            }
         }
     }
 }
-setInterval(activate, 200)
+//change speed
+const slider = document.querySelector(".speed")
+var value = slider.value + "00"
 
+slider.addEventListener("change", () => {
+    value = slider.value + "00"
+    // console.log(value)
+})
+
+console.log(value)
+setInterval(activate, value)
 
 //change color
-const input = document.querySelector("input")
-const form = document.querySelector("form")
+const input = document.querySelector(".color")
 
 const colorUpdate = (cssVars) => {
     const root = document.querySelector(":root")
@@ -48,5 +57,3 @@ input.addEventListener("input", (e) => {
     [cssPropName]: e.target.value
     })
 })
-
-//change speed
